@@ -2,8 +2,10 @@
 *.tfstate
 *.tfstate.backup
 
+
 # Module directory
 .terraform/
-
+*/.terraform
+*/*/.vagrant
 .DS_Store
 .idea

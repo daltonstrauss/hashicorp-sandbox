@@ -1,6 +1,6 @@
 // Google Compute Platform Variables
 variable network_name {
-  default     = "thenewnet"
+  default     = "sre-team-nonprod"
   type        = "string"
   description = "Just the network name for the Google Compute Platform."
 }
@@ -20,7 +20,7 @@ variable gcp_ip_cidr_range {
 }
 
 variable aws_ip_cidr_range {
-  default = "10.0.1.0/24"
+  default = "10.223.32.0/20"
   type = "string"
   description = "IP CIDR Range for AWS VPC."
 }
@@ -29,9 +29,9 @@ variable subnet_names {
   type = "map"
 
   default = {
-    subnet1 = "subnetone"
-    subnet2 = "subnettwo"
-    subnet3 = "subnetthree"
+    subnet1 = "10.223.32.0/24"
+    subnet2 = "10.223.36.0/24"
+    subnet3 = "10.223.34.0/24"
   }
 }
 

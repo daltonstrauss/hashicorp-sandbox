@@ -1,18 +1,18 @@
 provider "google" {
-  credentials = "${file("../account.json")}"
-  project     = "thrashingcorecode"
-  region      = "us-west1"
+  credentials = "${file("../../account.json")}"
+  project     = "sre-team"
+  region      = "us-east1-b"
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = "us-east-1"
 }
 
 provider "azurerm" {
-  subscription_id = "${var.subscription_id}"
-  client_id       = "${var.client_id}"
-  client_secret   = "${var.client_secret}"
-  tenant_id       = "${var.tenant_id}"
+  subscription_id = "0"
+  client_id       = "1"
+  client_secret   = "2"
+  tenant_id       = "3"
 }
 
 variable subscription_id {}
