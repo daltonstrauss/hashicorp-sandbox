@@ -1,37 +1,37 @@
 resource "google_compute_network" "our_development_network" {
-  name                    = "sre-nonprod-network"
-  auto_create_subnetworks = true
+  name = "devnetwork"
+  auto_create_subnetworks = false
 }
 
 resource "aws_vpc" "environment-example-two" {
-  cidr_block           = "${var.aws_ip_cidr_range}"
+  cidr_block = "10.0.0.0/16"
   enable_dns_hostnames = true
-  enable_dns_support   = true
-
+  enable_dns_support = true
   tags {
     Name = "terraform-aws-vpc-example-two"
   }
 }
 
-/* resource "azurerm_resource_group" "azy_network" {
+
+resource "azurerm_resource_group" "azy_network" {
   location = "West US"
-  name     = "devresgrp"
+  name = "devresgrp"
 }
 
 resource "azurerm_virtual_network" "blue_virtual_network" {
-  address_space       = ["10.0.0.0/16"]
-  location            = "West US"
-  name                = "bluevirtnetwork"
+  address_space = ["10.0.0.0/16"]
+  location = "West US"
+  name = "bluevirtnetwork"
   resource_group_name = "${azurerm_resource_group.azy_network.name}"
-  dns_servers         = ["10.0.0.4", "10.0.0.5"]
+  dns_servers = ["10.0.0.4", "10.0.0.5"]
 
   subnet {
-    name           = "subnet1"
+    name = "subnet1"
     address_prefix = "10.0.1.0/24"
   }
 
   subnet {
-    name           = "subnet2"
+    name = "subnet2"
     address_prefix = "10.0.2.0/24"
   }
 
@@ -39,4 +39,3 @@ resource "azurerm_virtual_network" "blue_virtual_network" {
     environment = "blue-world-finder"
   }
 }
-*/ 

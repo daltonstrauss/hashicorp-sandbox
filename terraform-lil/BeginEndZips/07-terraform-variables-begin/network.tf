@@ -1,10 +1,10 @@
 resource "google_compute_network" "our_development_network" {
-  name                    = "sre-nonprod-network"
-  auto_create_subnetworks = true
+  name                    = "devnetwork"
+  auto_create_subnetworks = false
 }
 
 resource "aws_vpc" "environment-example-two" {
-  cidr_block           = "${var.aws_ip_cidr_range}"
+  cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = true
   enable_dns_support   = true
 
@@ -13,7 +13,7 @@ resource "aws_vpc" "environment-example-two" {
   }
 }
 
-/* resource "azurerm_resource_group" "azy_network" {
+resource "azurerm_resource_group" "azy_network" {
   location = "West US"
   name     = "devresgrp"
 }
@@ -39,4 +39,3 @@ resource "azurerm_virtual_network" "blue_virtual_network" {
     environment = "blue-world-finder"
   }
 }
-*/ 
